@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const initialState = {
     name: '',
@@ -8,14 +9,18 @@ const initialState = {
 
 const PokemonForm = (props) => {
     const [formData, setFormData] = useState(initialState);
+    
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        //TODO: Complete submit logic
+        props.addPokemon(formData);
+        setFormData(initialState);
+        navigate('/pokemon');
     }
 
-    const handleChange = () => {
-        //update form state
+    const handleChange = (event) => {
+        setFormData({...formData, [event.target.name]: event.target.value})
     }
 
     return (
@@ -34,7 +39,7 @@ const PokemonForm = (props) => {
 
                 <label htmlFor='weight'>Weight:</label>
                 <input
-                    type='text'
+                    type='number'
                     id='weight'
                     name='weight'
                     value={formData.weight}
@@ -43,7 +48,7 @@ const PokemonForm = (props) => {
 
                 <label htmlFor='height'>Height:</label>
                 <input
-                    type='text'
+                    type='number'
                     id='height'
                     name='height'
                     value={formData.height}
