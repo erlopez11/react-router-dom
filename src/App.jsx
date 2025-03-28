@@ -45,7 +45,7 @@ function App() {
         />
         <Route
           path='*'
-          element={<h2>Whopps! 404: nothing to see here!</h2>}
+          element={<h2>Whoops! 404: nothing to see here!</h2>}
         />
       </Routes>
     </>
