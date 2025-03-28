@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PokemonList from './components/PokemonList/PokemonList';
+import NavBar from './components/NavBar/NavBar';
 
 
 const initialState = [
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <NavBar />
       <h1>Pokemon</h1>
       <PokemonList pokemon={pokemon}/>
     </>
